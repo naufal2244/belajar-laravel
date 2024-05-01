@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 
 Route::get('/', function () {
@@ -19,20 +20,8 @@ Route::get('/about', function () {
 
 //route menuju blog
 
-Route::get('/blog', function () {
-    return view('posts', [
-        'hal' => "halaman post",
-        'name' => 'Naufal',
-        'post' => Post::getAll()
-    ]);
-});
+Route::get('/blog', [PostController::class, 'index']);
 
 //Routes ke postingan satu per satu
-Route::get('{slug}', function ($slug) {
-
-    return view('singlePost', ['hal' => 'halaman posting tunggal',
-    'name' => 'Naufal',
-    'data' => Post::getSingle($slug)
-]);
-});
+Route::get('{slug}', [PostController::class, 'single']);
 

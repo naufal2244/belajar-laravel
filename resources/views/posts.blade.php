@@ -6,9 +6,9 @@
 
     @foreach ($post as $tempe)
     <article>
-    <h2> <a href= "{{ $tempe["slug"] }}" >{{ $tempe["judul"] }}</a></h2>
-    <h4>{{ $tempe["penulis"] }}</h4>
-    <p>{{$tempe["isi"] }}</p>
+    <h2> <a href= "{{ $tempe["id"] }}" >{{ $tempe->title }}</a></h2>
+    
+    <p>{{$tempe ->sebagian }}</p>
     <hr>
     </article>
     @endforeach
